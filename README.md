@@ -14,27 +14,29 @@ Before you begin, ensure you have:
 
 ### Module declaration
 
-    ```hcl
-    # Load module
-    module "aws-module" {
-        source = "git@github.com:poncincs/terraform-aws-module.git"
+To use this module in your Terraform configuration, add the following code:
 
-        aws_region                = "eu-west-3"
-        aws_profile               = "ema2024"
-        aws_shared_credentials_files_path  = ["~/.aws/profile"]
-        aws_public_ssh_key_path       = "~/.ssh/aws_key.pub"
-        aws_vpc_id                = "vpc-X"
-        aws_ami                   = "ami-X"
-        aws_instance_type         = "t3.micro"
-        aws_subnet_id             = "subnet-X"
-        aws_instance_name         = "Terraform"
-    }
+```hcl
+# Load module
+module "aws-module" {
+    source = "git@github.com:poncincs/terraform-aws-module.git"
 
-    # Output values from the module
-    output "instance_public_ip" {
-        value = module.terraform-aws-module.instance_public_ip
-    }
-    ```
+    aws_region                = "eu-west-3"
+    aws_profile               = "ema2024"
+    aws_shared_credentials_files_path  = ["~/.aws/profile"]
+    aws_public_ssh_key_path       = "~/.ssh/aws_key.pub"
+    aws_vpc_id                = "vpc-X"
+    aws_ami                   = "ami-X"
+    aws_instance_type         = "t3.micro"
+    aws_subnet_id             = "subnet-X"
+    aws_instance_name         = "Terraform"
+}
+
+# Output values from the module
+output "instance_public_ip" {
+    value = module.terraform-aws-module.instance_public_ip
+}
+```
 
 ### Input variables
 
@@ -51,35 +53,35 @@ You can customize the EC2 instance by modifying the variables in `main.tf`. Here
 
 1. Clone this repository:
 
-        ```bash
-        git clone https://github.com/votre-utilisateur/votre-repo.git
-        ```
+```bash
+git clone https://github.com/votre-utilisateur/votre-repo.git
+```
 
 2. Navigate to the cloned directory:
 
-        ```bash
-        cd votre-repo
-        ```
+```bash
+cd votre-repo
+```
 
 3. Open `main.tf` and modify the variables according to your requirements.
 
 4. Initialize Terraform:
 
-        ```bash
-        terraform init
-        ```
+```bash
+terraform init
+```
 
 5. Review the changes Terraform will make:
 
-        ```bash
-        terraform plan
-        ```
+```bash
+terraform plan
+```
 
 6. Apply the Terraform configuration to create the AWS EC2 instance:
 
-        ```bash
-        terraform apply
-        ```
+```bash
+terraform apply
+```
 
     Type `yes` when prompted to confirm.
 
@@ -87,9 +89,9 @@ You can customize the EC2 instance by modifying the variables in `main.tf`. Here
 
 8. To destroy the resources created by Terraform (including the EC2 instance), run:
 
-        ```bash
-        terraform destroy
-        ```
+```bash
+terraform destroy
+```
 
     Type `yes` when prompted to confirm.
 
