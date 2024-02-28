@@ -5,26 +5,26 @@ resource "aws_key_pair" "ssh_key" {
 }
 
 # Création du groupe de sécurité
-resource "aws_security_group" "ssh_access" {
-  name        = "ssh-access"
-  description = "Allow SSH access"
+# resource "aws_security_group" "ssh_access" {
+#   name        = "ssh-access"
+#   description = "Allow SSH access"
   
-  vpc_id = var.aws_vpc_id  # ID du VPC
+#   vpc_id = var.aws_vpc_id  # ID du VPC
 
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # Autorise l'accès SSH depuis n'importe quelle adresse IP
-  }
-}
+#   ingress {
+#     from_port   = 22
+#     to_port     = 22
+#     protocol    = "tcp"
+#     cidr_blocks = ["0.0.0.0/0"]  # Autorise l'accès SSH depuis n'importe quelle adresse IP
+#   }
+# }
 
 resource "aws_instance" "app_server" {
   ami           = var.aws_ami 
   instance_type = var.aws_instance_type
   key_name = aws_key_pair.ssh_key.key_name
-
   subnet_id = var.aws_subnet_id
+  # vpc_security_group_ids = [aws_security_group.allow_ssh.id]
 
 
   tags = {
