@@ -83,7 +83,7 @@ terraform plan
 terraform apply
 ```
 
-    Type `yes` when prompted to confirm.
+Type `yes` when prompted to confirm.
 
 7. Once the instance is created, you can find its public IP address in the Terraform output.
 
@@ -93,7 +93,7 @@ terraform apply
 terraform destroy
 ```
 
-    Type `yes` when prompted to confirm.
+Type `yes` when prompted to confirm.
 
 ## Customization
 
