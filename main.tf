@@ -1,7 +1,7 @@
 # Création de la paire de clés SSH
 resource "aws_key_pair" "ssh_key" {
-  key_name   = var.ssh_key_name               # Nom de la paire de clés
-  public_key = file(var.public_ssh_key_path)  # Chemin vers la clé publique SSH
+  key_name   = var.aws_ssh_key_name               # Nom de la paire de clés
+  public_key = file("${var.aws_public_ssh_key_path}")  # Chemin vers la clé publique SSH
 }
 
 # Création du groupe de sécurité
